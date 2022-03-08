@@ -68,6 +68,9 @@ async function main() {
     .ls-block[data-refs-self*='".ol-nested'] .bullet-container > .bullet {
       display: none;
     }
+    .ls-block[data-refs-self*='".ol-nested'] > div > div > a + a > .bullet-container > .bullet {
+      display: block;
+    }
 
     .ls-block[data-refs-self*='".ul'] > div > div > a + a > .bullet-container > .bullet {
       display: none;
