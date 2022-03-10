@@ -19,7 +19,7 @@ async function main() {
       counter-reset: kef-ol kef-ol-nested;
     }
 
-    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a:hover > .bullet-container {
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a:hover > .bullet-container:not(.bullet-closed) {
       background-color: transparent;
     }
     .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container {
@@ -49,7 +49,7 @@ async function main() {
       counter-increment: kef-ol-nested;
       content: counters(kef-ol-nested, ".") ". ";
     }
-    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a:hover > .bullet-container {
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a:hover > .bullet-container:not(.bullet-closed) {
       background-color: transparent;
     }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container {
