@@ -72,20 +72,20 @@ async function main() {
       display: block;
     }
 
-    .ls-block[data-refs-self*='".ul'] > div > div > a + a > .bullet-container > .bullet {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] > div > div > a + a > .bullet-container > .bullet {
       display: none;
     }
-    .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a:hover > .bullet-container {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a:hover > .bullet-container {
       background-color: var(--ls-block-bullet-border-color, #ced9e0);
     }
-    .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container {
       width: 20px;
       height: 20px;
     }
-    .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container::before {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container::before {
       display: none;
     }
-    .ls-block[data-refs-self*='".ul'] .bullet-container > .bullet {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .bullet-container > .bullet {
       display: flex;
     }
 
