@@ -24,8 +24,10 @@ async function main() {
     }
     .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container {
       min-width: 20px;
-      width: auto;
-      height: auto;
+      width: auto !important;
+      height: auto !important;
+      background-color: var(--ls-primary-background-color) !important;
+      z-index: 1 !important;
     }
     .ls-block[data-refs-self*='".ol'] .ls-block > div > div > a + a > .bullet-container::before {
       display: none;
@@ -54,8 +56,10 @@ async function main() {
     }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container {
       min-width: 20px;
-      width: auto;
-      height: auto;
+      width: auto !important;
+      height: auto !important;
+      background-color: var(--ls-primary-background-color) !important;
+      z-index: 1 !important;
     }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container::before {
       display: block;
@@ -109,6 +113,10 @@ async function main() {
     .ls-block[data-refs-self*='".ol-nested-right-paren'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container::before,
     .ls-block[data-refs-self*='".ol-nested-right-paren'] .ls-block > div > div > a + a > .bullet-container::before {
       content: counters(kef-ol-nested, ".") ") ";
+    }
+
+    .ls-block[data-refs-self*='".ol'] .ls-block[haschild=true] > div > .block-content-wrapper::before {
+      display: none;
     }
   `)
 
