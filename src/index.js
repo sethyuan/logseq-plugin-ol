@@ -1,9 +1,15 @@
 import "@logseq/libs"
+import { setup, t } from "logseq-l10n"
+import zhCN from "./translations/zh-CN.json"
 
 const Tag = /(^|\s)#\.ol\S*/g
 
 async function main() {
-  const { preferredLanguage: lang } = await logseq.App.getUserConfigs()
+  const l10nSetup = setup({
+    urlTemplate:
+      "https://raw.githubusercontent.com/sethyuan/logseq-plugin-ol/master/src/translations/${locale}.json",
+    builtinTranslations: { "zh-CN": zhCN },
+  })
 
   logseq.provideStyle(`
     a[data-ref|='.ol'] {
@@ -120,8 +126,10 @@ async function main() {
     }
   `)
 
+  await l10nSetup
+
   logseq.Editor.registerBlockContextMenuItem(
-    lang === "zh-CN" ? "显示为有序列表" : "Show as ordered list",
+    t("Show as ordered list"),
     async ({ uuid }) => {
       const block = await logseq.Editor.getBlock(uuid)
       await logseq.Editor.updateBlock(
@@ -131,7 +139,7 @@ async function main() {
     },
   )
   logseq.Editor.registerBlockContextMenuItem(
-    lang === "zh-CN" ? "显示为嵌套有序列表" : "Show as nested ordered list",
+    t("Show as nested ordered list"),
     async ({ uuid }) => {
       const block = await logseq.Editor.getBlock(uuid)
       await logseq.Editor.updateBlock(
