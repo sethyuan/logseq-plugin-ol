@@ -5,11 +5,7 @@ import zhCN from "./translations/zh-CN.json"
 const Tag = /(^|\s)#\.ol\S*/g
 
 async function main() {
-  const l10nSetup = setup({
-    urlTemplate:
-      "https://raw.githubusercontent.com/sethyuan/logseq-plugin-ol/master/src/translations/${locale}.json",
-    builtinTranslations: { "zh-CN": zhCN },
-  })
+  await setup({ builtinTranslations: { "zh-CN": zhCN } })
 
   logseq.provideStyle(`
     a[data-ref|='.ol'] {
@@ -125,8 +121,6 @@ async function main() {
       display: none;
     }
   `)
-
-  await l10nSetup
 
   logseq.Editor.registerBlockContextMenuItem(
     t("Show as ordered list"),
