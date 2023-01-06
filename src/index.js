@@ -25,7 +25,7 @@ async function main() {
       background-color: transparent;
     }
     .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container {
-      min-width: 20px;
+      min-width: 16px;
       width: auto !important;
       height: auto !important;
       background-color: var(--ls-primary-background-color) !important;
@@ -57,7 +57,7 @@ async function main() {
       background-color: transparent;
     }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container {
-      min-width: 20px;
+      min-width: 16px;
       width: auto !important;
       height: auto !important;
       background-color: var(--ls-primary-background-color) !important;
@@ -78,20 +78,40 @@ async function main() {
       display: block;
     }
 
-    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] > div > div > a + a > .bullet-container > .bullet {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] > div > div > a + a > .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container > .bullet {
       display: none;
     }
-    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a:hover > .bullet-container {
-      background-color: var(--ls-block-bullet-border-color, #ced9e0);
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a:hover > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a:hover > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a:hover > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a:hover > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a:hover > .bullet-container {
+      background-color: var(--ls-block-bullet-border-color, #ced9e0) !important;
     }
-    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container {
-      width: 20px;
-      height: 20px;
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container {
+      width: 16px !important;
+      height: 16px !important;
     }
-    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container::before {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .ls-block > div > div > a + a > .bullet-container::before,
+    .ls-block[data-refs-self*='".ol-nested-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container::before,
+    .ls-block[data-refs-self*='".ol-nested-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container::before,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container::before,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .ls-block > div > div > a + a > .bullet-container::before {
       display: none;
     }
-    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .bullet-container > .bullet {
+    .ls-block[data-refs-self*='".ol'] .ls-block[data-refs-self*='".ul'] .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .bullet-container > .bullet,
+    .ls-block[data-refs-self*='".ol-nested-right-paren-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .bullet-container > .bullet {
       display: flex;
     }
 

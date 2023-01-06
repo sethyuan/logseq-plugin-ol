@@ -25,7 +25,11 @@ Add a tag starting with `#.ol` to display a block as an ordered list. There are 
 嵌套列表 (Nested List)
 
 - `#.ol-nested`
+- `#.ol-nested-2`
+- `#.ol-nested-3`
 - `#.ol-nested-right-paren`
+- `#.ol-nested-right-paren-2`
+- `#.ol-nested-right-paren-3`
 
 有序列表中的无序列表 (Unordered List in a Ordered List)
 
@@ -45,17 +49,39 @@ Add a tag starting with `#.ol` to display a block as an ordered list. There are 
 Ordered list symbol customization example code:
 
 ```css
-.ls-block[data-refs-self*='".ol-right-paren'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container::before {
+.ls-block[data-refs-self*='".ol-right-paren']
+  > .block-children-container
+  > .block-children
+  > .ls-block
+  > div
+  > div
+  > a
+  + a
+  > .bullet-container::before {
   content: counter(kef-ol) ") ";
 }
 
-.ls-block[data-refs-self*='".ol-nested-right-paren'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container::before,
-.ls-block[data-refs-self*='".ol-nested-right-paren'] .ls-block > div > div > a + a > .bullet-container::before {
+.ls-block[data-refs-self*='".ol-nested-right-paren']
+  > .block-children-container
+  > .block-children
+  > .ls-block
+  > div
+  > div
+  > a
+  + a
+  > .bullet-container::before,
+.ls-block[data-refs-self*='".ol-nested-right-paren']
+  .ls-block
+  > div
+  > div
+  > a
+  + a
+  > .bullet-container::before {
   content: counters(kef-ol-nested, ".") ") ";
 }
 ```
 
-第一段对应普通列表，.ol-right-paren部分可以改为任何以.ol-开头的tag，例如：.ol-my；content里面的双引号里的内容就是序号采用的符号，你可以按照喜好修改。
+第一段对应普通列表，.ol-right-paren 部分可以改为任何以.ol-开头的 tag，例如：.ol-my；content 里面的双引号里的内容就是序号采用的符号，你可以按照喜好修改。
 
 第二段对应嵌套列表，修改方法同第一段。
 
