@@ -113,7 +113,6 @@ async function main() {
     .ls-block[data-refs-self*='".ol-nested-right-paren-2'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .bullet-container > .bullet,
     .ls-block[data-refs-self*='".ol-nested-right-paren-3'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block .bullet-container > .bullet {
       display: flex;
-      margin-left: -4px;
     }
 
     .ls-block[data-refs-self*='".ol-paren'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container::before {
