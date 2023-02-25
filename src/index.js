@@ -20,6 +20,33 @@ async function main() {
     .ls-block[data-refs-self*='".ol-nested'] .block-children {
       counter-reset: kef-ol kef-ol-nested;
     }
+    .ls-block[data-refs-self*='".ol-2'] .block-children {
+      counter-reset: kef-ol 1;
+    }
+    .ls-block[data-refs-self*='".ol-3'] .block-children {
+      counter-reset: kef-ol 2;
+    }
+    .ls-block[data-refs-self*='".ol-4'] .block-children {
+      counter-reset: kef-ol 3;
+    }
+    .ls-block[data-refs-self*='".ol-5'] .block-children {
+      counter-reset: kef-ol 4;
+    }
+    .ls-block[data-refs-self*='".ol-6'] .block-children {
+      counter-reset: kef-ol 5;
+    }
+    .ls-block[data-refs-self*='".ol-7'] .block-children {
+      counter-reset: kef-ol 6;
+    }
+    .ls-block[data-refs-self*='".ol-8'] .block-children {
+      counter-reset: kef-ol 7;
+    }
+    .ls-block[data-refs-self*='".ol-9'] .block-children {
+      counter-reset: kef-ol 8;
+    }
+    .ls-block[data-refs-self*='".ol-10'] .block-children {
+      counter-reset: kef-ol 9;
+    }
 
     .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a:hover > .bullet-container:not(.bullet-closed) {
       background-color: transparent;
