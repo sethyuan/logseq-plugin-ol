@@ -14,11 +14,9 @@ async function main() {
     a[data-ref|='.ul'] {
       display: none !important;
     }
+
     .ls-block[data-refs-self*='".ol'] .block-children {
       counter-reset: kef-ol;
-    }
-    .ls-block[data-refs-self*='".ol-nested'] .block-children {
-      counter-reset: kef-ol kef-ol-nested;
     }
     .ls-block[data-refs-self*='".ol-2'] .block-children {
       counter-reset: kef-ol 1;
@@ -46,6 +44,37 @@ async function main() {
     }
     .ls-block[data-refs-self*='".ol-10'] .block-children {
       counter-reset: kef-ol 9;
+    }
+
+    .ls-block[data-refs-self*='".ol-nested'] .block-children {
+      counter-reset: kef-ol-nested;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s2'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 1 kef-ol-nested 1;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s3'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 2 kef-ol-nested 2;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s4'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 3 kef-ol-nested 3;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s5'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 4 kef-ol-nested 4;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s6'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 5 kef-ol-nested 5;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s7'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 6 kef-ol-nested 6;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s8'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 7 kef-ol-nested 7;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s9'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 8 kef-ol-nested 8;
+    }
+    .ls-block[data-refs-self*='".ol-nested-s10'] > .block-children-container > .block-children {
+      counter-reset: kef-ol 9 kef-ol-nested 9;
     }
 
     .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a:hover > .bullet-container:not(.bullet-closed) {
