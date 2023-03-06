@@ -8,11 +8,12 @@ async function main() {
   await setup({ builtinTranslations: { "zh-CN": zhCN } })
 
   logseq.provideStyle(`
-    a[data-ref|='.ol'] {
-      display: none !important;
-    }
+    a[data-ref|='.ol'],
     a[data-ref|='.ul'] {
       display: none !important;
+    }
+    .cp__all_pages_table :is(a[data-ref|='.ol'], a[data-ref|='.ul']) {
+      display: unset !important;
     }
 
     .ls-block[data-refs-self*='".ol'] .block-children {
