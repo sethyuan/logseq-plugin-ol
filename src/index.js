@@ -88,6 +88,9 @@ async function main() {
       background-color: var(--ls-primary-background-color) !important;
       z-index: 1 !important;
     }
+    .tl-logseq-portal-container .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container {
+      background-color: transparent !important;
+    }
     .ls-block[data-refs-self*='".ol'] .ls-block > div > div > a + a > .bullet-container::before {
       display: none;
     }
@@ -119,6 +122,9 @@ async function main() {
       height: auto !important;
       background-color: var(--ls-primary-background-color) !important;
       z-index: 1 !important;
+    }
+    .tl-logseq-portal-container .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container {
+      background-color: transparent !important;
     }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container::before {
       display: block;
