@@ -78,3 +78,9 @@ Ordered list symbol customization example code:
 The first paragraph corresponds to the general list, the .ol-right-paren part can be changed to any tag starting with .ol-, e.g: .ol-my; the content inside the double quotes is the symbol used for the serial number, you can modify it according to your preference.
 
 The second paragraph corresponds to the nested list and is modified in the same way as the first paragraph.
+
+## Buy me a coffee
+
+If you think the software I have developed is helpful to you and would like to give recognition and support, you may buy me a coffee using following link. Thank you for your support and attention.
+
+<a href="https://www.buymeacoffee.com/sethyuan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
