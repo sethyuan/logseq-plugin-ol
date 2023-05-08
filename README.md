@@ -78,3 +78,9 @@
 第一段对应普通列表，.ol-right-paren 部分可以改为任何以.ol-开头的 tag，例如：.ol-my；content 里面的双引号里的内容就是序号采用的符号，你可以按照喜好修改。
 
 第二段对应嵌套列表，修改方法同第一段。
+
+## Buy me a coffee
+
+如果您认为我所开发的软件对您有所帮助，并且愿意给予肯定和支持，不妨扫描下方的二维码进行打赏。感谢您的支持与关注。
+
+![wx](https://user-images.githubusercontent.com/3410293/236807219-cf21180a-e7f8-44a9-abde-86e1e6df999b.jpg) ![ap](https://user-images.githubusercontent.com/3410293/236807256-f79768a7-16e0-4cbf-a9f3-93f230feee30.jpg)
