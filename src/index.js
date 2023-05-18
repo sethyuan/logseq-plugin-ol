@@ -46,6 +46,10 @@ async function main() {
     .ls-block[data-refs-self*='".ol-10'] .block-children {
       counter-reset: kef-ol 9;
     }
+    .ls-block[data-refs-self*='".ol'] .block-control-wrap {
+      min-width: 0;
+      margin-right: 10px;
+    }
 
     .ls-block[data-refs-self*='".ol-nested'] .block-children {
       counter-reset: kef-ol-nested;
