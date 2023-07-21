@@ -10,6 +10,11 @@ Ordered lists, flat or nested, multiple formats ordered lists.
 
 Add a tag starting with `#.ol` to display a block as an ordered list. There are multiple formats to choose from.
 
+You can also use the following two commands:
+
+- `/Convert to ordered list`
+- `/Convert to nested ordered list`
+
 ## List Styles
 
 Single-Level List

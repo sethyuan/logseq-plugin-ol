@@ -102,6 +102,24 @@ async function main() {
       font-size: 0.85em;
       min-width: max-content;
     }
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div:has(:is(.flex-1 > h1, .editor-inner .h1)) > div > a + a > .bullet-container::before {
+      font-size: calc(2em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div:has(:is(.flex-1 > h2, .editor-inner .h2)) > div > a + a > .bullet-container::before {
+      font-size: calc(1.5em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div:has(:is(.flex-1 > h3, .editor-inner .h3)) > div > a + a > .bullet-container::before {
+      font-size: calc(1.2em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div:has(:is(.flex-1 > h4, .editor-inner .h4)) > div > a + a > .bullet-container::before {
+      font-size: calc(1em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div:has(:is(.flex-1 > h5, .editor-inner .h5)) > div > a + a > .bullet-container::before {
+      font-size: calc(0.83em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div:has(:is(.flex-1 > h6, .editor-inner .h6)) > div > a + a > .bullet-container::before {
+      font-size: calc(0.75em * 0.85);
+    }
     .ls-block[data-refs-self*='".ol'] .bullet-container > .bullet {
       display: block;
     }
@@ -133,6 +151,24 @@ async function main() {
       font-family: "Tahoma", sans-serif;
       font-size: 0.85em;
       min-width: max-content;
+    }
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div:has(:is(.flex-1 > h1, .editor-inner .h1)) > div > a + a > .bullet-container::before {
+      font-size: calc(2em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div:has(:is(.flex-1 > h2, .editor-inner .h2)) > div > a + a > .bullet-container::before {
+      font-size: calc(1.5em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div:has(:is(.flex-1 > h3, .editor-inner .h3)) > div > a + a > .bullet-container::before {
+      font-size: calc(1.2em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div:has(:is(.flex-1 > h4, .editor-inner .h4)) > div > a + a > .bullet-container::before {
+      font-size: calc(1em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div:has(:is(.flex-1 > h5, .editor-inner .h5)) > div > a + a > .bullet-container::before {
+      font-size: calc(0.83em * 0.85);
+    }
+    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div:has(:is(.flex-1 > h6, .editor-inner .h6)) > div > a + a > .bullet-container::before {
+      font-size: calc(0.75em * 0.85);
     }
     .ls-block[data-refs-self*='".ol-nested'] .bullet-container > .bullet {
       display: none;
@@ -205,28 +241,41 @@ async function main() {
     }
   `)
 
+  logseq.Editor.registerSlashCommand(
+    "Convert to ordered list",
+    async ({ uuid }) => await convertToOrderedList(uuid),
+  )
+  logseq.Editor.registerSlashCommand(
+    "Convert to nested ordered list",
+    async ({ uuid }) => await convertToNestedOrderedList(uuid),
+  )
+
   logseq.Editor.registerBlockContextMenuItem(
     t("Show as ordered list"),
-    async ({ uuid }) => {
-      const block = await logseq.Editor.getBlock(uuid)
-      await logseq.Editor.updateBlock(
-        uuid,
-        `${block.content.replace(Tag, "").trimStart()} #.ol`,
-      )
-    },
+    async ({ uuid }) => await convertToOrderedList(uuid),
   )
   logseq.Editor.registerBlockContextMenuItem(
     t("Show as nested ordered list"),
-    async ({ uuid }) => {
-      const block = await logseq.Editor.getBlock(uuid)
-      await logseq.Editor.updateBlock(
-        uuid,
-        `${block.content.replace(Tag, "").trimStart()} #.ol-nested`,
-      )
-    },
+    async ({ uuid }) => await convertToNestedOrderedList(uuid),
   )
 
   console.log("#ol loaded")
+}
+
+async function convertToOrderedList(uuid) {
+  await convertTo(uuid, "#.ol")
+}
+
+async function convertToNestedOrderedList(uuid) {
+  await convertTo(uuid, "#.ol-nested")
+}
+
+async function convertTo(uuid, text) {
+  const block = await logseq.Editor.getBlock(uuid)
+  await logseq.Editor.updateBlock(
+    uuid,
+    `${block.content.replace(Tag, "").trimStart()} ${text}`,
+  )
 }
 
 logseq.ready(main).catch(console.error)
