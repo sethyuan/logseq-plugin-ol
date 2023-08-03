@@ -76,18 +76,11 @@ async function main() {
       counter-reset: kef-ol 9 kef-ol-nested 9;
     }
 
-    .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a:hover > .bullet-container:not(.bullet-closed) {
-      background-color: transparent;
-    }
     .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container {
-      min-width: 16px;
       width: auto !important;
       height: auto !important;
-      background-color: var(--ls-primary-background-color) !important;
-      z-index: 1 !important;
-    }
-    .tl-logseq-portal-container .ls-block[data-refs-self*='".ol'] > .block-children-container > .block-children > .ls-block > div > div > a + a > .bullet-container {
       background-color: transparent !important;
+      z-index: 1 !important;
     }
     .ls-block[data-refs-self*='".ol'] .ls-block > div > div > a + a > .bullet-container::before {
       display: none;
@@ -129,18 +122,11 @@ async function main() {
       counter-increment: kef-ol-nested;
       content: counters(kef-ol-nested, ".") ". ";
     }
-    .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a:hover > .bullet-container:not(.bullet-closed) {
-      background-color: transparent;
-    }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container {
-      min-width: 16px;
       width: auto !important;
       height: auto !important;
-      background-color: var(--ls-primary-background-color) !important;
-      z-index: 1 !important;
-    }
-    .tl-logseq-portal-container .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container {
       background-color: transparent !important;
+      z-index: 1 !important;
     }
     .ls-block[data-refs-self*='".ol-nested'] .ls-block > div > div > a + a > .bullet-container::before {
       display: block;
