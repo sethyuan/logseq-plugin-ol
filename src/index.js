@@ -2,8 +2,6 @@ import "@logseq/libs"
 import { setup, t } from "logseq-l10n"
 import zhCN from "./translations/zh-CN.json"
 
-const Tag = /(^|\s)#\.ol\S*/g
-
 async function main() {
   await setup({ builtinTranslations: { "zh-CN": zhCN } })
 
@@ -242,40 +240,53 @@ async function main() {
   `)
 
   logseq.Editor.registerSlashCommand(
-    "Convert to ordered list",
-    async ({ uuid }) => await convertToOrderedList(uuid),
+    "Ordered list",
+    async ({ uuid }) => await toggleOrderedList(uuid),
   )
   logseq.Editor.registerSlashCommand(
-    "Convert to nested ordered list",
-    async ({ uuid }) => await convertToNestedOrderedList(uuid),
+    "Nested ordered list",
+    async ({ uuid }) => await toggleNestedOrderedList(uuid),
+  )
+  logseq.Editor.registerSlashCommand(
+    "Unordered list",
+    async ({ uuid }) => await toggleUnorderedList(uuid),
   )
 
   logseq.Editor.registerBlockContextMenuItem(
-    t("Show as ordered list"),
-    async ({ uuid }) => await convertToOrderedList(uuid),
+    t("Toggle ordered list"),
+    async ({ uuid }) => await toggleOrderedList(uuid),
   )
   logseq.Editor.registerBlockContextMenuItem(
-    t("Show as nested ordered list"),
-    async ({ uuid }) => await convertToNestedOrderedList(uuid),
+    t("Toggle nested ordered list"),
+    async ({ uuid }) => await toggleNestedOrderedList(uuid),
   )
 
   console.log("#ol loaded")
 }
 
-async function convertToOrderedList(uuid) {
-  await convertTo(uuid, "#.ol")
+async function toggleOrderedList(uuid) {
+  await toggle(uuid, "#.ol")
 }
 
-async function convertToNestedOrderedList(uuid) {
-  await convertTo(uuid, "#.ol-nested")
+async function toggleNestedOrderedList(uuid) {
+  await toggle(uuid, "#.ol-nested")
 }
 
-async function convertTo(uuid, text) {
+async function toggleUnorderedList(uuid) {
+  await toggle(uuid, "#.ul")
+}
+
+async function toggle(uuid, text) {
   const block = await logseq.Editor.getBlock(uuid)
-  await logseq.Editor.updateBlock(
-    uuid,
-    `${block.content.replace(Tag, "").trimStart()} ${text}`,
-  )
+  const pattern = new RegExp(`(^|\\s)${text.replace(".", "\\.")}\\S*`, "g")
+  if (pattern.test(block.content)) {
+    await logseq.Editor.updateBlock(
+      uuid,
+      block.content.replace(pattern, "").trimStart(),
+    )
+  } else {
+    await logseq.Editor.updateBlock(uuid, `${block.content} ${text}`)
+  }
 }
 
 logseq.ready(main).catch(console.error)

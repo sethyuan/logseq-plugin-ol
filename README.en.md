@@ -12,8 +12,9 @@ Add a tag starting with `#.ol` to display a block as an ordered list. There are 
 
 You can also use the following two commands:
 
-- `/Convert to ordered list`
-- `/Convert to nested ordered list`
+- `/Ordered list`
+- `/Nested ordered list`
+- `/Unordered list`
 
 ## List Styles
 

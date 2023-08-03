@@ -1,4 +1,4 @@
 {
-  "Show as ordered list": "显示为有序列表",
-  "Show as nested ordered list": "显示为嵌套有序列表"
+  "Toggle ordered list": "切换有序列表",
+  "Toggle nested ordered list": "切换嵌套有序列表"
 }

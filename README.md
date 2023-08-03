@@ -10,8 +10,9 @@
 
 也可以使用以下两个命令：
 
-- `/Convert to ordered list`
-- `/Convert to nested ordered list`
+- `/Ordered list`
+- `/Nested ordered list`
+- `/Unordered list`
 
 在想要展示为有序列表的块上添加一个以 `#.ol` 开头的标签就可以了。有多种样式可供选择。
 
